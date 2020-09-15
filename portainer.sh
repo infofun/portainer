@@ -86,14 +86,14 @@ if [ "${mode}" == 'install' ] || [ "${mode}" == 'i' ]; then
 elif [ "${mode}"  == 'update' ] || [ "${mode}"  == 'u' ]; then
     sudo docker stop ${name}
     sudo docker rm ${name}
-    sudo docker rmi portainer/portainer-ce:${tags}
+    sudo docker rmi $(docker images | grep "portainer" | awk '{print $1":"$2}')
     sudo docker pull portainer/portainer-ce:${tags}
     sudo docker run -d -p ${port} -v /var/run/docker.sock:/var/run/docker.sock -v ${dpath}:/data --restart=always --name ${name} portainer/portainer-ce:${tags}
     echo "update completed."
 elif [ "${mode}"  == 'delete' ] || [ "${mode}"  == 'd' ]; then
     sudo docker stop ${name}
     sudo docker rm ${name}
-    sudo docker rmi portainer/portainer-ce:${tags}
+    sudo docker rmi $(docker images | grep "portainer" | awk '{print $1":"$2}')
 	echo "delete complete."
 fi
 
