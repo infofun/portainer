@@ -14,6 +14,7 @@ portainer.sh -m -p -n -v -d
 -d <data path> (default: portainer_data)  
 
 ========================================================  
+
 Run without options  
 default : install
 
@@ -22,6 +23,7 @@ portainer.sh
 When run it runs like the following
 
 docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data --restart=always --name portainer portainer/portainer-ce:latest  
+
 ========================================================
 
 install  
