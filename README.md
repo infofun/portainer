@@ -8,7 +8,6 @@ help : portainer.sh -h
 portainer.sh -m -p -n -v -d
 
 -m <install/update/delete or i/u/d> (default: install)
-
 -p <Host Port:Guest Port> (default: 9000:9000)
 
 -n <container name> (default: portainer)
